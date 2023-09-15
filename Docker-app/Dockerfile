@@ -1,9 +1,4 @@
-FROM tomcat:8-jre11
-
-RUN rm -rf /usr/local/tomcat/webapps/*
-
-COPY target/vprofile-v2.war /usr/local/tomcat/webapps/ROOT.war
-
+FROM tomcat:8.0.20-jre8
+COPY tomcat-users.xml /usr/local/tomcat/conf
+COPY target/*.war /usr/local/tomcat/webapps/root.war
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
-
